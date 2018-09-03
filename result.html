@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link href="result.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+    function call(){
+    	try{
+    		xmlHttp=new XMLHttpRequest();
+    	}catch(e1){
+    		try{
+    			xmlHttp=new ActiveObject("Microsoft.XMLHTTP");
+    		}catch(e2){
+        		try{
+        			xmlHttp=new ActiveObject("Msxm12.XMLHTTP");
+        		}catch(e3){
+        			alert('AJAX not Supported!');
+        			return false;
+        		}
+        	}
+    	}
+    	var htn=document.f.htn.value;
+    	var year=document.f.year.value;
+    	xmlHttp.open("GET","getResult.jsp?htn="+htn+"&year="+year,true);
+    	xmlHttp.onreadystatechange=function(){
+    		
+        	if(	xmlHttp.status==200){
+        		document.getElementById("res").innerHTML=xmlHttp.responseText;
+      		}
+        	 };
+       xmlHttp.send();
+    	 }
+    function check(){
+    		if(document.f.htn.value.length==0){
+    			alert("Fill Hall Ticket Number!");
+    			return false;
+    		}
+    		else if(document.f.htn.value.length!=10){
+    			alert("Invalid Hall Ticket Number!");
+    			return false;
+    		}
+    		
+    		return true;
+    }
+    function fun(){
+    	if(check()) 
+    		call();
+    }
+    </script>
+    <style type="text/css">
+    table{
+    text-align:center;
+    }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="h00">
+        <div class="h01">
+            <h2>B. Tech Results</h2>
+        </div>
+        <div class="h02"><h2>
+        	<a href="result.html" >Home</a>|
+            <a href="examiner.html">Exam Councilor</a>|
+            <a href="Exam_Fee.html">Exam Fees</a></h2>
+        </div>
+    </div>
+</div>
+<br>
+<div class="main0">
+    <fieldset>
+        <legend class="l1">Results</legend>
+        <form name="f">
+            <div class="main1">
+                <div class="main2">
+                    <div class="main3">Hall Ticket No.:</div>
+                    <div class="main3"><input title="htn" name="htn" id="htn" required></div>
+                </div>
+                <div class="main2">
+                    <div class="main3">Year/Sem:</div>
+                    <div class="main3">
+                        <select name="y" id="year" title="year">
+                            <option value="11">1-1 </option>
+                            <option value="12">1-2 </option>
+                            <option value="21">2-1</option>
+                            <option value="22">2-2</option>
+                            <option value="31">3-1</option>
+                            <option value="32">3-2</option>
+                            <option value="41">4-1</option>
+                            <option value="42">4-2 </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="main2">
+                    <div class="main4">
+                        <input type="button" value="Get Result" onclick="fun()">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>
+<div name="res" id="res" class="">
+</div>
+</body>
+</html>

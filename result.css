@@ -1,0 +1,81 @@
+div.main1 {
+    display: table;
+    padding: 4px;
+}
+
+div.main2 {
+    display: table-row;
+}
+
+div.main3 {
+    display: table-cell;
+    padding: 4px;
+}
+
+div.main4 {
+    display: table-cell;
+    column-span: 2;
+    text-align: center;
+}
+
+legend.l1 {
+    background-color: chocolate;
+    padding: 3px;
+    border: 1px solid grey;
+    box-shadow: 3px 3px 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+fieldset {
+    text-align: left;
+}
+
+body {
+    background-color: tan;
+}
+
+div.main0 {
+    margin-left: 33%;
+    margin-right: 33%;
+    text-align: center;
+    width: 34%;
+}
+
+input {
+    width: 90%;
+}
+
+div.header {
+    background-color: chocolate;
+    display: table;
+    width: 100%;
+    height: 30px;
+}
+
+div.h01 {
+    text-align: left;
+    display: table-cell;
+}
+
+div.h02 {
+    text-align: right;
+    display: table-cell;
+}
+
+div.h00 {
+    display: table-row;
+}
+h1.not {
+	text-align: center;
+	color: red;
+}
+a:visited {
+	color:blue;
+}
+table:nth-child(2n) {
+	background:tan;
+}
+table:nth-child(2n+1) {
+	background:white;
+}
